@@ -16,7 +16,7 @@ public class functions {
     }
 
     public static int fact(int num) {
-        if (num == 1) {
+        if (num <= 1) {
             return 1;
         }
 
