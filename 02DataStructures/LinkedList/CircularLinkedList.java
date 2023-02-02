@@ -26,6 +26,48 @@ public class CircularLinkedList {
 
     }
 
+    static Node deleteNode(Node head, int val) {
+        if (head == null) {
+            return null;
+        }
+
+        Node curr = head, prev = new Node();
+
+        while (curr.data != val) {
+            if (curr.next == head) {
+                break;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+
+        // if node is the only one in list
+        if (curr.next == head) {
+            return head;
+        }
+
+        // deleting the head
+        // if there are more elements in node
+        if (curr == head) {
+            prev = head;
+            while (prev.next != head) {
+                prev = prev.next;
+            }
+            head = curr.next;
+            prev.next = head;
+        }
+
+        // if node is the last node
+        else if (curr.next == head) {
+            prev.next = head;
+        } else {
+            prev.next = curr.next;
+        }
+
+        return head;
+
+    }
+
     static void cprintList(Node head) {
 
         Node temp = head;
