@@ -81,6 +81,29 @@ public class CircularLinkedList {
 
     }
 
+    // Counting Nodes
+    static int countNodes(Node head) {
+        Node temp = head;
+        int count = 0;
+        if (head != null) {
+            do {
+                temp = temp.next;
+                count++;
+            } while (temp != head);
+        }
+
+        return count;
+    }
+
+    static Node toCircular(Node head) {
+        Node start = head;
+        while (head.next != null) {
+            head = head.next;
+        }
+        head.next = start;
+        return start;
+    }
+
     public static void main(String[] args) {
         Node head = null;
 
